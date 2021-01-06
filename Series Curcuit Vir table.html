@@ -1,0 +1,124 @@
+<html>
+<head>
+<style>
+	table, th, td {
+		border: 2px solid black;
+		border-collapse:collapse;
+		}
+		th, td {
+			font-size: 2em;
+		}
+		td {
+			font-family:comic sans ms;
+			color: black;
+			text-align: center;
+		}
+		th {
+			font-family: Courier; 
+			color: black;
+			padding: 2px; 
+			margin: 2px;
+			font-size: 2.5em; 
+			margin-top: 1px;
+			margin-bottom: 1px; 
+			border: 3px solid black;
+			border-collapse: collapse;
+			width: 200px;
+		}
+		.images {
+			margin: 0px;
+			position:fixed;
+			margin-top:-200px;
+			border: 3px solid black;
+			width: 200px;
+		}
+		#table th {
+			background-color: #0033CC; 
+			font-color: black;
+			width: 200px;
+		}
+		#table {
+			background-color: white;
+		}
+		td:hover {
+			background-color: red; color: white;
+			}
+	</style>
+	<script>
+	function calc() {
+	var Vf;
+	var If;
+	var Rf;
+	Rf = parseFloat(document.getElementById('r1').value) + parseFloat(document.getElementById('r2').value) + parseFloat(document.getElementById('r3').value) + parseFloat(document.getElementById('r4').value) + parseFloat(document.getElementById('r5').value);
+	document.getElementById('rf').innerHTML = Rf + "Ω";
+	Vf = document.getElementById('vf').value;
+	If = Vf / Rf;
+	If = If.toPrecision(3)
+	document.getElementById('if').innerHTML = If + "A";
+	document.getElementById('i1').innerHTML = If;
+	document.getElementById('i2').innerHTML = If;
+	document.getElementById('i3').innerHTML = If;
+	document.getElementById('i4').innerHTML = If;
+	document.getElementById('i5').innerHTML = If;
+	var v1 = parseFloat(document.getElementById('r1').value) * If;
+	v1 = v1.toPrecision(3);
+	var v2 = parseFloat(document.getElementById('r2').value) * If;
+	v2 = v2.toPrecision(3);
+	var v3 = parseFloat(document.getElementById('r3').value) * If;
+	v3 = v3.toPrecision(3);
+	var v4 = parseFloat(document.getElementById('r4').value) * If;
+	v4 = v4.toPrecision(3);
+	var v5 = parseFloat(document.getElementById('r5').value) * If;
+	v5 = v5.toPrecision(3);
+	document.getElementById('v1').innerHTML = v1;
+	document.getElementById('v2').innerHTML = v2;
+	document.getElementById('v3').innerHTML = v3;
+	document.getElementById('v4').innerHTML = v4;
+	document.getElementById('v5').innerHTML = v5;
+	}
+	</script>
+</head>
+<body>
+<table>
+<tbody>
+<tr>
+	<th>V</th>
+	<th>I</th>
+	<th>R</th>
+</tr>
+<tr>
+	<td><p id="v1"></p></td>
+	<td><p id="i1"></p></td>
+	<td><input id="r1"></input></td>
+</tr>
+<tr>
+	<td><p id="v2"></p></td>
+	<td><p id="i2"></p></td>
+	<td><input id="r2"></input></td>
+</tr>
+<tr>
+	<td><p id="v3"></p></td>
+	<td><p id="i3"></p></td>
+	<td><input id="r3"></input></td>
+</tr>
+<tr>
+	<td><p id="v4"></p></td>
+	<td><p id="i4"></p></td>
+	<td><input id="r4"></input></td>
+</tr>
+<tr>
+	<td><p id="v5"></p></td>
+	<td><p id="i5"></p></td>
+	<td><input id="r5"></input></td>
+</tr>
+<tr>
+<th><input id="vf"></input>V</th>
+<th><p id="if"></p></th>
+<th><p id="rf"></p></th>
+</tr>
+</tr>
+</tbody>
+</table>
+<button onclick=calc()>Calculate</button>
+</body>
+</html>
